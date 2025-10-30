@@ -21,10 +21,10 @@ services:
     container_name: nginx_reverse_proxy
     ports:
       - "80:80"
-     ## - "443:443"          # if you add SSL later
+      - "443:443"          # if you add SSL later
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
-     ## - ./ssl/certs:/etc/ssl/certs  # SSL certs folder if you have them
-     ## - ./ssl/private:/etc/ssl/private
+      - ./ssl/certs:/etc/ssl/certs/btnhd.com.csr:ro
+      - ./ssl/private:/etc/ssl/private/btnhd.com.key:ro
     depends_on:
       - backend
